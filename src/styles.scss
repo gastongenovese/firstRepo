@@ -1,0 +1,121 @@
+$font: 'Montserrat', sans-serif;
+$border: black 4px solid;
+$borderRadius: 10px;
+@mixin basicos {
+    margin: 0;
+    padding: 0;
+}
+@mixin container-styles {
+    width: 100%;
+    height: 50vh;
+}
+@mixin cards-elements {
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    padding: 5%;
+    margin: 0;
+}
+
+:root{
+    user-select: none;
+    font-family: $font;
+    background-color:green;
+    font-weight: 600;
+}
+body{
+    display: grid;
+    grid-template-areas: 
+    'upLeft upCenter upRight'
+    'downLeft downCenter downRight';
+    grid-template-columns: 10% 80% 10%;
+    grid-template-rows: 50% 50%;
+    height: 100vh;
+    margin:0px 20px;
+    padding:0px;
+}
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items:center ;
+    flex-direction: row;
+}
+#up-container{
+    grid-area: upCenter;
+   @include container-styles();
+}
+#down-container{
+    grid-area: downCenter;
+    @include container-styles();
+
+}
+.card{
+    display: grid;
+    height: 131px;
+    width: 84px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    border: rgb(0, 0, 0) 4px solid;
+    padding: 16px 8px;
+    margin: 5px;
+    grid-template-areas:
+        "a . ."
+        ". b ."
+        ". . c";
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 33% 33% 33%;
+}
+.card-number{
+    grid-area: a;
+    font-size: xx-large;
+    font-weight: 800;
+    margin: 0px;
+    align-self: flex-start;
+    justify-self: flex-start;
+}
+.card-suit{
+    font-size: 70px;
+    grid-area: b;
+}
+.buttonContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#down-left-buttons{
+    grid-area: downLeft;
+}
+#up-right-buttons{
+    grid-area: upRight;
+}
+button{
+    font-family: $font;
+    border: 3px black;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin: 10px;
+    width: 60px;
+    cursor: pointer;
+}
+.btn-pedir{
+    background-color: rgb(143, 195, 219);
+}
+.btn-pedir:hover{
+    background-color: rgb(41, 50, 143);
+    color: white;
+    transform: scale(1.25);
+    box-shadow: 0px 5px 7px 0px black;
+}
+.btn-dividir{
+    background-color: rgb(242, 242, 151);
+}
+.btn-parar{
+    background: rgb(242, 90, 90);
+}
+.♦ .♥{
+    color:red;
+} 
